@@ -1,0 +1,56 @@
+ChatGPT
+1. Create a custom server.js file in the root directory of your Next.js project.
+2. Install the 'express' and 'next' packages using npm.
+3. Import the required modules in the server.js file.
+
+```
+const express = require('express');
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
+```
+
+4. Now define the custom routes using express.
+
+```
+app.prepare().then(() => {
+const server = express();
+
+//Custom route for the home page
+server.get('/', (req, res) => {
+return app.render(req, res, '/', req.query);
+});
+
+//Custom route for the about page
+server.get('/about', (req, res) => {
+return app.render(req, res, '/about', req.query);
+});
+
+//Catch-all route
+server.all('*', (req, res) => {
+return handle(req, res);
+});
+
+//Start the server on port 3000
+server.listen(3000, (err) => {
+if (err) throw err;
+console.log('> Ready on http://localhost:3000');
+});
+});
+```
+
+5. Run the server.js file using the following command.
+
+```
+node server.js
+```
+
+6. Now you can navigate to the custom routes by using the following URLs.
+
+```
+http://localhost:3000/ (home page)
+http://localhost:3000/about (about page)
+```
+
+7. Note that, in this setup, you don't need to create separate folders for each of the custom paths.

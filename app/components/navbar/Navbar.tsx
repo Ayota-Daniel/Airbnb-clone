@@ -5,10 +5,16 @@ import Container from "@/components/Container";
 import Logo from "@/components/navbar/Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import { SafeUser } from "@/app/types";
+import Categories from "./Categories";
+
+interface NavbarProps {
+  currentUser?: SafeUser | null;
+}
 
 type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div className={`fixed w-full bg-white z-10 shadow-sm`}>
       <div className={`py-4 border-b-[1px]`}>
@@ -18,10 +24,11 @@ const Navbar = (props: Props) => {
           >
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };

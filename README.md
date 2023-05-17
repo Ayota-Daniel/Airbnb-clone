@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## package add to the project and there usage
+
+npm i query-string : url parser
+npm install world-countries : for input country
+npm install react-select :
+npm install leaflet :
+npm i -D @types/leaflet
+npm i react-leaflet
+npm i next-cloudinary
+npm i date-fns
+npm i react-date-range
+npm i react-spinners
