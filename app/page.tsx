@@ -3,14 +3,16 @@ import { Inter } from "next/font/google";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
-import getListings, { IParamsListings } from "./actions/getListings";
+import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listing/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-dynamic";
+
 interface HomeParams {
-  searchParams: IParamsListings;
+  searchParams: IListingsParams;
 }
 
 const Home = async ({ searchParams }: HomeParams) => {
@@ -33,7 +35,7 @@ const Home = async ({ searchParams }: HomeParams) => {
           {listings.map((listing, index) => {
             return (
               <ListingCard
-                currentUser={currentUser!}
+                currentUser={currentUser}
                 key={index}
                 data={listing}
               />
